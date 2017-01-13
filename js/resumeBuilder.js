@@ -129,9 +129,9 @@ $(document).click(function(loc){
 })
 
 
-function inName(nameString){
-    var finalName = nameString;
-    var names = nameString.split(" ");
+function inName(name){
+    var finalName = name;
+    var names = name.split(" ");
     names[1] = names[1].toUpperCase();
     names[0] = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
     finalName = names.join(" ");
