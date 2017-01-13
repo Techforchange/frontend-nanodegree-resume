@@ -1,9 +1,9 @@
 
-// var formattedName = HTMLheaderName.replace("%data%", "Arlene Perez");
-// var formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
-//
-// $('#header').prepend(formattedName);
-// $('#header').append(formattedRole);
+var formattedName = HTMLheaderName.replace("%data%", "Arlene Perez");
+var formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
+
+$('#header').prepend(formattedName);
+$('#header').append(formattedRole);
 
 var bio = {
 	"name": "Arlene Perez",
@@ -82,4 +82,24 @@ var education =  {
       "url": "https://www.udacity.com/course/javascript-basics--ud804"
     }
   ]
+}
+
+var formattedSkills = HTMLskills.replace("%data%", "Software Developer");
+
+if(bio.skills != 0) {
+  $('#header').append(HTMLskillsStart);
+
+  for(var i = 0; i < bio.skills.length; i++) {
+    var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
+    $('#skills').append(formattedSkills);
+  }
+}
+
+if(bio.skills != 0) {
+  $('#header').append(HTMLskillsStart);
+
+  for(var i = 0; i < bio.skills.length; i++) {
+    var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
+    $('#skills').append(formattedSkills);
+  }
 }
