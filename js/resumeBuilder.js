@@ -1,9 +1,4 @@
 
-var formattedName = HTMLheaderName.replace("%data%", "Arlene Perez");
-var formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
-
-$('#header').prepend(formattedName);
-$('#header').append(formattedRole);
 
 var bio = {
 	"name": "Arlene Perez",
@@ -11,12 +6,13 @@ var bio = {
 	"contacts": {
 		"email": "arleneperezsb@gmail.com",
 		"phone": "562-322-1545",
-		"location": "Los Angeles",
+		"location": "Los Angeles, CA",
 		"Github": "https://github.com/Techforchange",
 		"LinkedIn": "https://www.linkedin.com/in/arleneperez-techforchange"
 	},
-	"welcomeMessage": "Curious about technology, fast learner, always trying to make a difference",
-	"skills": ["JavaScript", "AJAX", "HTML", "CSS", "Ruby", "Ruby on Rails", "Nokogiri"]
+	"welcomeMessage": "My purpose in life is to create technology that makes a difference in this world. To me, the ultimate goal is not to create a product but to create a change! Being raised by two Mexican immigrants, I know the true value of a great education by becoming the first in my family to graduate from college. Being featured in the White House Initiative on Educational Excellence for Hispanics Heritage Month Teacher Profile, recognized by Los Angeles Mayor Garcetti as well as in Univision's Puente al Futuro Special for leading a robotics team with my students in East Los Angeles, has allowed me to increase awareness around the issue of increasing minority representation in STEM careers.",
+	"skills": ["JavaScript", "AJAX", "HTML", "CSS", "Ruby", "Ruby on Rails", "Nokogiri"],
+	"biopic": "images/APerez_profpic.jpg"
 }
 
 var work = {
@@ -88,6 +84,31 @@ var education =  {
   ]
 }
 
+function displayBio(){
+	// $('#header').append(HTMLskillsStart);
+	var formattedName = HTMLheaderName.replace("%data%", "Arlene Perez");
+	var formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.phone);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.Github);
+	var formattedLinkedIn = HTMLlinkedin.replace("%data%", bio.contacts.LinkedIn);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+	var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+	$('#header').prepend(formattedName);
+	$('#header').append(formattedRole);
+	$('#topContacts').append(formattedMobile);
+	$('#topContacts').append(formattedEmail);
+	$('#topContacts').append(formattedLocation);
+	$('#topContacts').append(formattedGithub);
+	$('#topContacts').append(formattedLinkedIn);
+	$('#header').append(formattedPic);
+	$('#header').append(formattedMessage);
+}
+
+displayBio();
+
 var formattedSkills = HTMLskills.replace("%data%", "Software Developer");
 
 if(bio.skills != 0) {
@@ -156,5 +177,16 @@ projects.display = function() {
   }
 }
 projects.display();
+
+function displayEducation() {
+  for(school in education.schools){
+
+    $('#education').append(HTMLschoolStart);
+
+		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    $('.education-entry').append(formattedSchoolName);
+	}
+}
+displayEducation();
 
 $('#mapDiv').append(googleMap);
